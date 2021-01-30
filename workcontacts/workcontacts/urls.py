@@ -1,3 +1,10 @@
+from django.contrib import admin
+from django.urls import include, path
+
+from django.conf.urls import handler404, handler500 
+from django.conf import settings
+from django.conf.urls.static import static
+
 """workcontacts URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,4 +25,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", include("contacts.urls")),
 ]

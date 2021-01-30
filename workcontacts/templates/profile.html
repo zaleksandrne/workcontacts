@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Профиль сотрудника {% endblock %}
+{% block header %}Профиль сотрудника{% endblock %}
+{% block content %}
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 mb-3 mt-1">
+            <div class="card">
+                    <div class="card-body">
+                            <div class="h2">
+                                {{ employee.second_name }}<br>
+                                {{ employee.first_name }}<br>
+                                {% if employee.patronymic_name %} {{ employee.patronymic_name }} {% endif %}
+                                
+                            </div>
+                            <div class="h3 text-muted">
+                            </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                    <div class="h6 text-muted">
+                                        {% include "new_communication.html" %}
+                                    
+                                    </div>
+                            </li>
+                            <li class="list-group-item">
+                                    <div class="h5 text">
+                                        Способы связи: <br>
+                                        {% for communication in communications %}
+                                        {{ communication.name }} ::: {{ communication.value }}  <a class= "btn btn-danger btn-sm" href="{% url 'delete_communication' communication.id %}" role="button"> - </a><br>
+                                        {% endfor %}
+                                    </div>
+                            </li>
+    
+                    </ul>
+            </div>
+    </div>
+            <div class="col-md-9">                
+     </div>
+    </div>
+</main> 
+{% endblock %}

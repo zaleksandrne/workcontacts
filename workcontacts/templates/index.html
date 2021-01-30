@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Список компаний{% endblock %}
+{% block header %}Список компаний{% endblock %}
+{% block content %}
+    <div class="container">
+        {% for company in companies %}
+        <div class="row">
+            <div class="col-sm">
+                <a class="btn btn-info btn-sm btn-block" href="{% url 'company_employees' company.slug %}">{{ company.title }}</a>
+            </div>
+            <div class="col-sm">
+                <a class= "btn btn-danger btn-sm" href="{% url 'delete_company' company.id %}" role="button"> - </a>
+            </div>
+            <div class="col-sm">
+                
+            </div>
+          </div>
+          {% endfor %}
+
+    </div>
+
+
+
+{% endblock %} 

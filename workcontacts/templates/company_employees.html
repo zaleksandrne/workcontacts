@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Сотрудники компании {{company.title}}{% endblock %}
+{% block header %}Сотрудники компании {{company.title}}{% endblock %}
+{% block content %}
+
+
+
+
+
+    <div class="container">
+        {% for employee in employees %}
+        <div class="row">
+            <div class="col-sm">
+                <a class= "btn btn-info btn-sm btn-block"href="{% url 'profile' employee.id %}">{{ employee.second_name }} {{ employee.first_name }} {% if employee.patronymic_name %} {{ employee.patronymic_name }} {% endif %}</a>
+            </div>
+            <div class="col-sm">
+                <a class= "btn btn-danger btn-sm" href="{% url 'delete_employee' employee.id %}" role="button"> - </a><br>
+            </div>
+            <div class="col-sm">
+                
+            </div>
+          </div>
+          {% endfor %}
+
+    </div>
+{% endblock %}
