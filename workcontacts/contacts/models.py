@@ -3,10 +3,6 @@ from django.db import models
 
 class Company(models.Model):
     title = models.CharField(max_length=200, verbose_name="Название компании")
-    slug = models.SlugField(max_length=30,
-                            unique=True, 
-                            verbose_name="Уникальное имя"
-                            )
     description = models.CharField(max_length=300, verbose_name="Описание")
 
     def __str__(self):

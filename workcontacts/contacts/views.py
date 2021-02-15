@@ -40,8 +40,8 @@ def new_employee(request):
     return render(request, "new_employee.html", {"form": form})
 
 
-def company_employees(request, slug):
-    company = get_object_or_404(Company, slug=slug)
+def company_employees(request, id):
+    company = get_object_or_404(Company, id=id)
     employees = company.employees.all()
     return render(
          request,
