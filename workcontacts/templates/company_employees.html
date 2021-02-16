@@ -11,13 +11,8 @@
         {% for employee in employees %}
         <div class="row">
             <div class="col-sm">
-                <a class= "btn btn-info btn-sm btn-block"href="{% url 'profile' employee.id %}">{{ employee.second_name }} {{ employee.first_name }} {% if employee.patronymic_name %} {{ employee.patronymic_name }} {% endif %}</a>
-            </div>
-            <div class="col-sm">
+                <a class= "btn btn-info btn-sm" style="width: 250px" href="{% url 'profile' employee.id %}">{{ employee.second_name }} {{ employee.first_name }} {% if employee.patronymic_name %} {{ employee.patronymic_name }} {% endif %}</a>
                 <a class= "btn btn-danger btn-sm" href="{% url 'delete_employee' employee.id %}" role="button"> - </a><br>
-            </div>
-            <div class="col-sm">
-                
             </div>
           </div>
           {% endfor %}
